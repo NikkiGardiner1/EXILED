@@ -23,6 +23,13 @@ namespace Exiled.API.Features
     /// </summary>
     public static class Round
     {
+#pragma warning disable SA1309 // Field names should not begin with underscore
+#pragma warning disable SA1401 // Fields should be private
+        /// <inheritdoc cref="IsEnded"/>
+        internal static bool __kIsEnded;
+#pragma warning restore SA1309
+#pragma warning restore SA1401
+
         /// <summary>
         /// Gets a list of players who will be ignored from determining round end.
         /// </summary>
@@ -54,7 +61,7 @@ namespace Exiled.API.Features
         /// <summary>
         /// Gets a value indicating whether the round is ended or not.
         /// </summary>
-        public static bool IsEnded => RoundSummary.singleton._roundEnded;
+        public static bool IsEnded => __kIsEnded;
 
         /// <summary>
         /// Gets a value indicating whether the round is lobby or not.
